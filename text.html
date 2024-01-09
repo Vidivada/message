@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://png.pngtree.com/background/20210716/original/pngtree-shiny-spot-abstract-effect-background-picture-image_1366951.jpg'); 
+             background-size: cover; 
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             display: flex; 
+             align-items: center;
+             justify-content: center;
+             height: 100vh;
+  
+        }
+
+        #messageForm {
+            margin: 20px;
+        }
+
+        input[type="text"], input[type="submit"] {
+            padding: 10px;
+            margin: 5px;
+            width: 200px;
+        }
+
+        #submittedMessage {
+            margin-top: 20px;
+            color: #1c1515;
+        }
+        table{
+            border: 4px solid;
+            border-color: slateblue;
+            text-align: center;
+        }
+        .center{
+            position: fixed;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <table class ="center"><tr><td>
+    <h2>TEXT MESSAGE</h2>
+    <form id="messageForm">
+        <label for="userMessage">Enter your message:</label>
+        <input type="text" id="userMessage" placeholder="Type your message here">
+        <input type="submit" value="Submit">
+    <div id="submittedMessage"></div>
+    <p>Effective messages are short and to the point.</p>
+</td></tr></table>
+    <script>
+        document.getElementById("messageForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var userMessage = document.getElementById("userMessage").value;
+            displayMessage(userMessage);
+        });
+
+        function displayMessage(message) {
+            var submittedMessage = document.getElementById("submittedMessage");
+            submittedMessage.textContent = "Message u entered: " + message;
+        }
+    </script>
+</body>
+</html>
